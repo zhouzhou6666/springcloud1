@@ -1,0 +1,15 @@
+
+server:
+  port: 83
+
+spring:
+  application:
+    name: nacos-provider-consumer
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848 #\u914D\u7F6Enacos\u5730\u5740
+
+#\u6D88\u8D39\u8005\u5C06\u8981\u53BB\u8BBF\u95EE\u7684\u5FAE\u670D\u52A1\u540D\u79F0\uFF08\u6CE8\u518C\u6210\u529F\u8FDBnacos\u7684\u5FAE\u670D\u52A1\u63D0\u4F9B\u8005\uFF09
+service-url:
+  nacos-user-service: http://nacos-payment-provider

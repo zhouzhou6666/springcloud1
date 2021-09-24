@@ -1,0 +1,30 @@
+server:
+  port: 3366
+spring:
+  application:
+    name: config-client
+  cloud:
+    #config\u5BA2\u6237\u7AEF\u914D\u7F6E
+    config:
+      label: master #\u5206\u652F\u540D\u79F0
+      name: config
+      profile: test #\u8BFB\u53D6\u540E\u7F00\u540D\u79F0  \u4E0A\u8FF03\u4E2A\u7EFC\u5408\uFF1Amaster\u5206\u652F\u4E0Aconfig-dev\u3002yml\u7684\u914D\u7F6E\u6587\u4EF6\u88AB\u8BFB\u53D6http\uFF1A//config-3344:3344/master/config-test.yml
+      uri: http://localhost:3344
+  rabbitmq:
+    host: localhost
+    username: guest
+    password: guest
+    port: 5672
+
+#\u670D\u52A1\u6CE8\u518C\u4FA7\u5230eureka\u5730\u5740
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka,http://localhost:7002/eureka
+
+#\u66B4\u9732\u76D1\u63A7\u7AEF\u70B9
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

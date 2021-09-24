@@ -1,0 +1,40 @@
+server:
+  port: 3344
+
+spring:
+  application:
+    name: cloud-config-center  #\u6CE8\u518C\u8FDBeureka\u670D\u52A1\u5668\u7684\u5FAE\u670D\u52A1\u540D\u79F0
+  cloud:
+    config:
+      server:
+        git:
+#          uri: git@github.com:zhouzhou6666/springcloud-config.git  #github\u4E0A\u9762\u7684git\u4ED3\u5E93\u540D\u5B57
+          uri: https://hub.fastgit.org/zhouzhou6666/springcloud-config.git
+          #\u641C\u7D22\u76EE\u5F55
+          search-paths:
+            - springcloud-config
+#          force-pull: true
+#          username: 1033197850@qq.com
+#          password: 941118+.gr
+      #\u8BFB\u53D6\u5206\u652F
+      label: master
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+
+#\u670D\u52A1\u5668\u4E4B\u7B56\u5230eureka\u5730\u5740
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka,http://localhost:7002/eureka
+
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'bus-refresh'

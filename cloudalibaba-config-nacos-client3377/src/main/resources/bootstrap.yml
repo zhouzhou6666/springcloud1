@@ -1,0 +1,18 @@
+#nacos\u914D\u7F6E
+server:
+  port: 3377
+spring:
+  application:
+    name: nacos-config-client
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848 #nacos\u670D\u52A1\u6CE8\u518C\u4E2D\u5FC3\u5730\u5740
+      config:
+        server-addr: localhost:8848 #\u4F5C\u4E3A\u914D\u7F6E\u4E2D\u5FC3\u5730\u5740
+        file-extension: yaml #\u6307\u5B9Ayaml\u683C\u5F0F\u7684\u914D\u7F6E
+#        group: DEV_GROUP
+        namespace: efd56ed4-3422-4fd7-b72d-5b142045f39d
+
+
+#${spring.application.name}-${spring.profile.active}.${spring.cloud.nacos.config.file-extension}
